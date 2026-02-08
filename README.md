@@ -36,7 +36,8 @@ Il progetto mostra come pulire i dati, trasformarli da formato wide a long e ana
 - Possibili sviluppi futuri: correlazioni, previsioni, analisi più approfondite
 
 ## Grafici
-I grafici sono salvati nella cartella `figures` e includono:
+I grafici sono salvati includono:
 - Andamento nel tempo (Italia)
 - Confronto tra paesi (2022)
 - Distribuzione dei valori
+
