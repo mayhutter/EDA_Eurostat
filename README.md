@@ -6,7 +6,7 @@ date: "2026-02-08"
 # Exploratory Data Analysis - Eurostat Dataset
 
 ## Descrizione
-Questo progetto consiste in un'analisi esplorativa di un dataset Eurostat (1995–2024) contenente dati su [inserisci tema: es. spesa pubblica, lavoro, sanità].  
+Questo progetto consiste in un'analisi esplorativa di un dataset Eurostat (1995–2024).  
 Il progetto mostra come pulire i dati, trasformarli da formato wide a long e analizzarli in R.
 
 ## Obiettivo
@@ -40,4 +40,5 @@ I grafici sono salvati includono:
 - Andamento nel tempo (Italia)
 - Confronto tra paesi (2022)
 - Distribuzione dei valori
+
 
