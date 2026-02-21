@@ -1,17 +1,17 @@
 # ===============================
-# 1️⃣ Caricare pacchetti necessari
+# Caricare pacchetti necessari
 # ===============================
 library(tidyverse)  # include dplyr, ggplot2, tidyr
 library(readr)      # per read_tsv
 library(ggplot2)
 
 # ===============================
-# 2️⃣ Caricare il file TSV
+# Caricare il file TSV
 # ===============================
 data <- read_tsv("estat_gov_10dd_edpt1.tsv")
 
 # ===============================
-# 3️⃣ Separare la colonna combinata in più colonne
+# Separare la colonna combinata in più colonne
 # ===============================
 data <- data %>%
   separate(
@@ -21,7 +21,7 @@ data <- data %>%
   )
 
 # ===============================
-# 4️⃣ Trasformare tutte le colonne degli anni in numerico
+# Trasformare tutte le colonne degli anni in numerico
 # ===============================
 anni <- colnames(data)[colnames(data) %in% as.character(1995:2024)]
 
@@ -29,7 +29,7 @@ data <- data %>%
   mutate(across(all_of(anni), as.numeric))
 
 # ===============================
-# 5️⃣ Gestione dei valori mancanti
+# Gestione dei valori mancanti
 # ===============================
 # Opzione 1: eliminare righe con NA
 data_clean <- drop_na(data)
@@ -39,7 +39,7 @@ data_clean <- drop_na(data)
 #   mutate(across(all_of(anni), ~replace_na(.x, 0)))
 
 # ===============================
-# 6️⃣ Trasformare il dataset in formato long
+# Trasformare il dataset in formato long
 # ===============================
 data_long <- data_clean %>%
   pivot_longer(
@@ -52,7 +52,7 @@ data_long$anno <- as.numeric(data_long$anno)
 data_long$valore <- as.numeric(data_long$valore)
 
 # ===============================
-# 7️⃣ Statistiche descrittive globali
+# Statistiche descrittive globali
 # ===============================
 summary(data_long$valore)
 
@@ -69,7 +69,7 @@ stats_paese <- data_long %>%
 print(stats_paese)
 
 # ===============================
-# 8️⃣ Grafici base
+# Grafici base
 # ===============================
 
 # 8.1 Andamento nel tempo (line plot) - esempio Italia
@@ -101,3 +101,4 @@ ggplot(data_long, aes(x = valore)) +
 #L’istogramma della distribuzione dei valori conferma la presenza di una variabilità significativa tra settori e paesi.
 #Alcuni dati mancanti sono stati eliminati durante la pulizia, il che potrebbe influenzare leggermente le medie.
 #Analisi future potrebbero includere correlazioni tra settori o previsioni per gli anni futuri, così da approfondire le tendenze osservate.
+
